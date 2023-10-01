@@ -2,13 +2,13 @@ const cfConfig = {
   error: {
     title: "Error!",
     message:
-      GEBID("contactform").getAttribute("error_text") ||
+      GEBID("contact-form").getAttribute("error_text") ||
       "Sorry, an error occurred while receiving your message, Try contacting me with another method.",
   },
   success: {
     title: "Message Sent Successfully.",
     message:
-      GEBID("contactform").getAttribute("success_text") ||
+      GEBID("contact-form").getAttribute("success_text") ||
       "Thank you for contacting me, I'll get back to you soon.",
   },
 };
@@ -47,7 +47,7 @@ window.onload = () => {
 
     var cfresult = JSON.parse(localStorage.getItem("contact-form"));
     if (
-      GEBID("contactform").getAttribute("disable_waittime") !== "true" &&
+      GEBID("contact-form").getAttribute("disable_waittime") !== "true" &&
       cfresult &&
       cfresult.sent &&
       cfresult.canSendUnix > new Date().getTime()
@@ -95,7 +95,7 @@ async function cfSubmitMessage() {
       var sendmessage = await (
         await fetch(
           document
-            .getElementById("contactform")
+            .getElementById("contact-form")
             .getAttribute("form_worker_url"),
           {
             method: "POST",
